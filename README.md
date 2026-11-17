@@ -1,4 +1,4 @@
-# A Little Homunculus
+# AI Homunculus
 
 A small experiment in giving an AI agent a place to live on my computer. I
 started with `agent.py`: a simple loop where the model can talk, use a few
