@@ -126,6 +126,8 @@ def run_command(command):
         "md5sum", "sha1sum", "strings", "od", "base64", "zipinfo",
         "dig", "host", "nslookup",
         "cal", "factor", "seq", "bc", "units", "cowsay", "fortune", "figlet",
+        "find", "sort", "zcat", "bzcat", "xzcat", "xxd", "hexdump",
+        "rg", "comm", "paste", "join", "fold", "expand", "printf"
     ]
 
     parts = command.split()

@@ -22,7 +22,7 @@ client = OpenAI(
     api_key=os.environ.get("DEEPSEEK_API_KEY"), base_url="https://api.deepseek.com"
 )
 
-SYSTEM_PROMPT = (Path(__file__).parent / "system.md").read_text(encoding="utf-8")
+SYSTEM_PROMPT = (Path(__file__).parent.parent/"prompts" / "system.md").read_text(encoding="utf-8")
 
 # ---------- moods ----------
 

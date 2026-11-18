@@ -3,16 +3,21 @@ import json
 from pathlib import Path
 from openai import OpenAI
 from dotenv import load_dotenv
+from providers import PROVIDERS
 from tools import tools, functions
 
 load_dotenv()
 
+cfg = PROVIDERS["deepseek"]
+
 client = OpenAI(
-    api_key=os.environ.get("DEEPSEEK_API_KEY"), base_url="https://api.deepseek.com"
-)
+     api_key= cfg["api_key"],
+     base_url=cfg["base_url"]
+ )
+
 
 SYSTEM_PROMPT = (
-    Path(__file__).parent / "system.md"
+    Path(__file__).parent.parent / "prompts"/ "system.md"
 ).read_text(encoding="utf-8")
 
 iterations = 1
@@ -35,7 +40,7 @@ print(f"{'=' * 40}{RESET}\n")
 while True:
 
     response = client.chat.completions.create(
-        model="deepseek-flash", messages=messages, tools=tools
+        model=cfg["model"], messages=messages, tools=tools
     )
 
     message = response.choices[0].message
@@ -71,7 +76,7 @@ while True:
 
         iterations += 1
 
-        if iterations == 4:
+        if iterations == 6:
         
                 break
 
